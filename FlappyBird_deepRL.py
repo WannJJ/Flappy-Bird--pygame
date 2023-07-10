@@ -424,7 +424,7 @@ def train():
             plot(plot_scores,plot_mean_loss)
 
 def play():
-    #let the agent play this game
+    #let the agent play this game, using the trained model
     agent = Agent()
     agent.use_trained_model()
     game = FlappyBirdEnv()
@@ -454,6 +454,9 @@ def play():
 
 # program where the game starts
 if __name__ == "__main__":
+    """
+    First we let the model learn by itself in 300 games using train(), then see the result by play()
+    """
     agent = Agent()
     train()
     

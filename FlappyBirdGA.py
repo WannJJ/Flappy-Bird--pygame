@@ -24,7 +24,7 @@ HEIGHT = 512
 ELEVATION = HEIGHT * 0.8
 
 framepersecond = 64#32 
-POPULATION = 100
+POPULATION = 1000
 
 
 
@@ -35,7 +35,7 @@ class FlappyBirdEnv:
         self.elevation = HEIGHT * 0.8
         self.pipeVelX = -6
         self.horizontal = int(WIDTH/5)
-        self.vertical = int(HEIGHT/2)
+        self.vertical = int(HEIGHT/2)   
         self.ground = 0
         self.mytempheight = 100
         self.population_last_round = []
@@ -274,7 +274,7 @@ class FlappyBirdEnv:
                 filter(lambda bird: not bird.is_dead, self.bird_list))
 
             # game over!!
-            if(len(self.bird_list) <= 5 or len(self.bird_list) < POPULATION*0.05):
+            if(len(self.bird_list) <= max(5, POPULATION*0.05)):
                 print(f'GENERATION {self.generation}:  score: {self.your_score}, population: {len(self.bird_list)}')
                 return
 
